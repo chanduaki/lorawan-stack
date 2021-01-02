@@ -88,7 +88,7 @@ func ParseLoRa(dr string) (DR, error) {
 	if len(matches) != 2 {
 		return DR{}, errDataRate.New()
 	}
-	sf, err := strconv.ParseUint(matches[1], 10, 64)
+	sf, err := strconv.ParseUint(matches[1], 10, 32)
 	if err != nil {
 		return DR{}, errDataRate.New()
 	}
@@ -104,7 +104,7 @@ func ParseLoRa(dr string) (DR, error) {
 		DataRate: ttnpb.DataRate{
 			Modulation: &ttnpb.DataRate_LoRa{
 				LoRa: &ttnpb.LoRaDataRate{
-					SpreadingFactor: uint32(sf),
+					SpreadingFactor: sf,
 					Bandwidth:       uint32(bw * 1000),
 				},
 			},
