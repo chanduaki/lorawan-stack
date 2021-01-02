@@ -104,7 +104,7 @@ func ParseLoRa(dr string) (DR, error) {
 		DataRate: ttnpb.DataRate{
 			Modulation: &ttnpb.DataRate_LoRa{
 				LoRa: &ttnpb.LoRaDataRate{
-					SpreadingFactor: sf,
+					SpreadingFactor: unit32(sf),
 					Bandwidth:       uint32(bw * 1000),
 				},
 			},
