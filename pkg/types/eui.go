@@ -20,7 +20,6 @@ import (
 	"fmt"
 	"strconv"
 	"strings"
-	"math"
 	"go.thethings.network/lorawan-stack/v3/pkg/errors"
 )
 
@@ -158,15 +157,11 @@ func (prefix *EUI64Prefix) UnmarshalJSON(data []byte) error {
 	if n != 8 || copy(prefix.EUI64[:], b) != 8 {
 		return errInvalidEUIPrefix.New()
 	}
-	length, err := strconv.Atoi(string(data[18 : len(data)-1]))
+	length, err := strconv.ParseUint(string(data[18 : len(data)-1]),10,8)
 	if err != nil {
 		return err
 	}
-
-	if length > 0 && length <= math.MaxInt {
-		prefix.Length = uint8(length)
-		return nil
-	}
+	prefix.Length = uint8(length)
 	return nil
 }
 
