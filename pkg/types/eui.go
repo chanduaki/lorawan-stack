@@ -163,7 +163,7 @@ func (prefix *EUI64Prefix) UnmarshalJSON(data []byte) error {
 		return err
 	}
 
-	if length > 0 && length <= math.MaxInt32 {
+	if length > 0 && length <= math.MaxInt8 {
 		prefix.Length = uint8(length)
 		return nil
 	}
