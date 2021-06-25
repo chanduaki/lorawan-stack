@@ -133,6 +133,7 @@ export default defineMessages({
   devName: 'End device name',
   disabled: 'Disabled',
   disconnected: 'Disconnected',
+  documentation: 'Documentation',
   downlink: 'Downlink',
   downlinkAck: 'Downlink ack',
   downlinkFailed: 'Downlink failed',
@@ -163,6 +164,8 @@ export default defineMessages({
   fNwkSIntKeyDescription: 'Forwarding network session integrity key',
   frameCounterWidth: 'Frame counter width',
   frequencyPlan: 'Frequency plan',
+  frequencyPlanWarning:
+    'Without choosing a frequency plan, packets from the gateway will not be correctly processed',
   gateway: 'Gateway',
   gatewayDescDescription:
     'Optional gateway description; can also be used to save notes about the gateway',
@@ -182,6 +185,7 @@ export default defineMessages({
   general: 'General',
   generalInformation: 'General information',
   generalSettings: 'General settings',
+  getSupport: 'Get Support',
   gsServerAddressDescription: 'The address of the Gateway Server to connect to',
   hardware: 'Hardware',
   hardwareVersion: 'Hardware version',

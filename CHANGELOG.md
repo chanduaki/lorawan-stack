@@ -11,9 +11,6 @@ For details about compatibility between different releases, see the **Commitment
 
 ### Added
 
-- Configuration option `is.admin-rights.all` to grant admins all rights, including `_KEYS` and `_ALL`.
-- `ttn-lw-stack` CLI command for creating an API Key with full rights on a user.
-
 ### Changed
 
 ### Deprecated
@@ -23,6 +20,41 @@ For details about compatibility between different releases, see the **Commitment
 ### Fixed
 
 ### Security
+
+## [3.10.10] - 2021-02-15
+
+### Fixed
+
+- Synchronization in Gateway Server scheduler that caused race conditions in scheduling downlink traffic.
+- Handling of `DLChannelReq` if dependent `NewChannelReq` was previously rejected.
+
+## [3.10.7] - 2021-01-14
+
+### Fixed
+
+- The inability to see individual end devices in the Console due to field mask errors.
+
+## [3.10.6] - 2021-01-12
+
+### Added
+
+- Configuration option `is.admin-rights.all` to grant admins all rights, including `_KEYS` and `_ALL`.
+- Configuration option `is.user-registration.contact-info-validation.token-ttl` to customize the validity of contact information validation tokens.
+- `ttn-lw-stack` CLI command for creating an API Key with full rights on a user.
+
+### Changed
+
+- Packet Broker API version to `v3.2.0-tts` and routing API to `v1.0.2-tts`.
+- Emails with temporary tokens now also show when these tokens expire. Custom email templates can use `{{ .TTL }}` and `{{ .FormatTTL }}` to render the expiry durations.
+
+### Deprecated
+
+- Packet Broker mutual TLS authentication: use OAuth 2.0 client credentials instead; set `pba.authentication-mode` to `oauth2` and configure `pba.oauth2`.
+- Packet Broker forwarder blacklist setting `pba.home-network.blacklist-forwarder` has become ineffective.
+
+### Fixed
+
+- Do not initiate new contact info validations when old validations are still pending.
 
 ## [3.10.5] - 2020-12-23
 
@@ -41,7 +73,6 @@ For details about compatibility between different releases, see the **Commitment
 ### Fixed
 
 - Removed misleading warning message for missing package data when setting up the storage integration package association.
-
 
 ## [3.10.4] - 2020-12-08
 
@@ -1234,7 +1265,10 @@ For details about compatibility between different releases, see the **Commitment
 <!--
 NOTE: These links should respect backports. See https://github.com/TheThingsNetwork/lorawan-stack/pull/1444/files#r333379706.
 -->
-[unreleased]: https://github.com/TheThingsNetwork/lorawan-stack/compare/v3.10.5...v3.10
+[unreleased]: https://github.com/TheThingsNetwork/lorawan-stack/compare/v3.10.10...v3.10
+[3.10.10]: https://github.com/TheThingsNetwork/lorawan-stack/compare/v3.10.7...v3.10.10
+[3.10.7]: https://github.com/TheThingsNetwork/lorawan-stack/compare/v3.10.6...v3.10.7
+[3.10.6]: https://github.com/TheThingsNetwork/lorawan-stack/compare/v3.10.5...v3.10.6
 [3.10.5]: https://github.com/TheThingsNetwork/lorawan-stack/compare/v3.10.4...v3.10.5
 [3.10.4]: https://github.com/TheThingsNetwork/lorawan-stack/compare/v3.10.3...v3.10.4
 [3.10.3]: https://github.com/TheThingsNetwork/lorawan-stack/compare/v3.10.2...v3.10.3
